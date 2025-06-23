@@ -1,5 +1,6 @@
 function inti() {
   renderArray();
+  showElementToCart();
 }
 
 function renderArray() {
@@ -27,3 +28,34 @@ function getTemplateListe(eatListe, i) {
         <div class="priceEet">${eatListe.preise} &euro;</div>
     </div>`;
 }
+function loadProductInCard() {
+    return JSON.parse(localStorage.getItem("ProductInCard")) || [];
+}
+let productInCard = loadProductInCard();
+
+function getTemplateCard(index){
+    return `
+    <hr>
+    <div class="warenElement">
+     <h2 class="nameEat">${productInCard[index] && productInCard[index].name ? productInCard[index].name : 'Name nicht gefunden'} </h2>
+     
+     `
+
+    
+}
+
+function showElementToCart(){
+    productInCard = loadProductInCard();
+    let cardListeRef = document.getElementById('basketList');
+    cardListeRef.innerHTML = "";
+    if(productInCard.length == 0) {
+        cardListeRef.innerHTML += `<h3 class="emptyCart">Der Warenkorb ist leer</h3>`;
+    }else
+    {
+        for(let i = 0; i < productInCard.length; i++) {
+            cardListeRef.innerHTML += getTemplateCard(i);
+        }
+    }
+
+}
+
