@@ -1,110 +1,134 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
-.container-fluid{
-    height: 120px;
-    width: 100%;
-    background-color: rgb(238, 140, 12);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.container-fluid {
+  height: 120px;
+  width: 100%;
+  background-color: rgb(238, 140, 12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.container-fluid img{
-    height: 70px;
-    margin: 10px;
+.container-fluid img {
+  height: 70px;
+  margin: 10px;
 }
-.dropdown{
-    border-radius: none;
-    
+.dropdown {
+  border-radius: none;
 }
-.imgPasta{
-    object-fit: cover;
-    height: 200px;
-    width: 80%;
+.imgPasta {
+  object-fit: cover;
+  height: 200px;
+  width: 80%;
 }
-.textDescription{
-    display: flex;
-    flex-direction: column;
-    padding: 15px;}
+.textDescription {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
 
-    .textDescription p{
-        color: rgb(238, 140, 12);
-    }
-   .textDescription h2{
-    color: rgb(82 68 68);
-
-   }
-   .secound-meun{
-    background-color: #ece8e0;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    height: 50px;
-    width: 80%;
+.textDescription p {
+  color: rgb(238, 140, 12);
 }
-.secound-meun a{
-    text-decoration: none;
-    color: rgb(82 68 68);
-    padding: 10px;
-    font-weight: 500;
+.textDescription h2 {
+  color: rgb(82 68 68);
 }
-.secound-meun span{
-    color: rgb(238, 140, 12);
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 20px;
+.secound-meun {
+  background-color: #ece8e0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 50px;
+  width: 80%;
 }
-.menuHupt{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 83%;
-    padding: 10px;
-  
+.secound-meun a {
+  text-decoration: none;
+  color: rgb(82 68 68);
+  padding: 10px;
+  font-weight: 500;
 }
-.menuHupt img{
-    height: 150px;
-    object-fit: cover;
+.secound-meun span {
+  color: rgb(238, 140, 12);
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.menuHupt {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+  padding: 10px;
+}
+.menuHupt img {
+  height: 150px;
+  object-fit: cover;
 }
 .menuBeilage {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
 }
-.menuBeilage img{
-    height: 150px;
-    object-fit: cover;
-    width: 83%;
+.menuBeilage img {
+  height: 150px;
+  object-fit: cover;
+  width: 80%;
 }
-.productCard{
-    position: absolute;
-    height: 100%;
-    width: 20%;
-    left: 80%;
-    top: 14.50%;
-    overflow-y: auto;
-    padding-right: 8px; 
-    background-color: white;
-    margin-bottom: 20px;
-    box-shadow: 0px 0px 12px 2px rgba(24, 15, 15, 0.339);
+.productCard {
+  position: absolute;
+  height: 100vh;
+  width: 25%;
+  top: 0;
+  left: 80%;
+  background-color: white;
+  box-shadow: 0px 0px 12px 2px rgba(24, 15, 15, 0.339);
+  overflow-y: auto;
+  margin-top: 120px;
+}
+.baskeTitle {
+  font-size: 32px;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: 0 2px 0 0 grey;
+  text-align: center;
+}
+.titleListe {
+  margin: 5px;
+  padding-left: 5px;
+  font-weight: 700;
+  font-family: sans-serif;
 }
 
-
-
-.basket-title{
-    font-size: 32px;
-    margin: 5px;
-    padding: 5px;
-    box-shadow: 0 2px 0 0 grey;
-    text-align: center;
-
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
 }
-.titleListe{
-    margin: 5px;
-    padding-left: 5px;
-    font-weight: 700;
-    font-family:sans-serif ;
+
+.card {
+  border-radius: 0 !important;
+  margin: 5px;
+}
+
+.card:hover {
+  background-color: #f5d4ba;
+}
+
+.card img {
+  border-radius: 0 !important;
+  height: 30px;
+  width: 30px;
+}
+
+.addToBasket {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white !important;
+  border: 3px solid #f7f6f1 !important;
+  border-radius: 0 !important;
+}
+.addToBasket:hover {
+  background-color: rgb(238, 140, 12) !important;
 }
