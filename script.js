@@ -29,3 +29,25 @@ function showElementToCart(){
     }
 
 }
+
+
+
+totalPrice = 0;
+deliveryPrice = 0;
+prouductPrice = 0;
+
+
+function showPrice(){
+  productInCard = loadProductInCard();
+  let priceRef =document.getElementById('basketPrice');
+  if (productInCard.length === 0) {
+    priceRef.classList.add('hidden');
+    priceRef.innerHTML = "";
+    
+  }else{
+    priceRef.classList.remove('hidden');
+    priceRef.innerHTML = "";
+    priceRef.innerHTML += templateTptalPrice(totalPrice, deliveryPrice, prouductPrice);
+    
+  }
+}
