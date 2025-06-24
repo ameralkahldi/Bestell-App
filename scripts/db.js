@@ -8,19 +8,19 @@ const myListe = [
     name: "Drehspieß Speziale",
     description:
       "mit frischen Champignons und Sahnesauce, ohne Salat und Sauce nach Wahl",
-    preise: 14.50,
+    preise: 14.59,
   },
   {
     name: "Griechischer Salat ",
     description:
       "mit grünem Salat, Weichkäse, Tomaten, Gurken, Paprika, Oliven und Zwiebeln",
-    preise: 8.70,
+    preise: 8.75,
   },
   {
     name: "Insalata Mozzarella",
     description:
       "mit Tomaten, Gurken, Mozzarella, Zwiebeln, grünem Salat, Gurken, Mais, Ei und roten Bohnen",
-    preise: 8.50,
+    preise: 8.55,
   },
   {
     name: "Insalata Tonno",
@@ -31,12 +31,12 @@ const myListe = [
   {
     name: "Spaghetti alla Napoli ",
     description: "mit Tomatensauce",
-    preise: 11.00,
+    preise: 11.88,
   },
   {
     name: "Spaghetti alla Romana ",
     description:
       "mit frischen Champignons, Petersilie, Knoblauch und Tomatensauce ",
-    preise: 9.5,
+    preise: 9.99,
   },
 ];
