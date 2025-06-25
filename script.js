@@ -71,4 +71,14 @@ function increaseQuantity(index) { //add auf Amount
   showElementToCart();
 
 }
+
+
+  function decincreaseQuantity(index) { //minus von Amount 
+    if (productInCard[index].quantity && productInCard[index].quantity > 1) {
+        productInCard[index].quantity--;
+    } else {
+        productInCard.splice(index, 1);
+    }
   
+    showElementToCart();
+}
