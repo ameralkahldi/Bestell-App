@@ -1,34 +1,28 @@
-function loadProductInCard() {
-  return JSON.parse(localStorage.getItem("ProductInCard")) || [];
-}
-
-let productInCard = loadProductInCard();
-
-function saveProductInCard(list) {
-  localStorage.setItem("ProductInCard", JSON.stringify(list));
-}
+let productInCard = [];
 
 function inti() {
   renderArray();
   showElementToCart();
-  showPrice();
 }
 
-function renderArray() {
-  const containerhRef = document.getElementById("showListe");
-  containerhRef.innerHTML = "";
+const containerhRef = document.getElementById("showListeDisch");
+const containerDischRef = document.getElementById("showListeDisch2");
 
+function renderArray() {
+  containerhRef.innerHTML = "";
   for (let i = 0; i < myListe.length; i++) {
-    const eatListe = myListe[i];
-    containerhRef.innerHTML += getTemplateListe(eatListe, i);
+    containerhRef.innerHTML += getTemplateListe(myListe, i);
+  }
+  containerDischRef.innerHTML = "";
+  for (let i = 0; i < myListe2.length; i++) {
+    containerDischRef.innerHTML += getTemplateListe(myListe2, i);
   }
 }
 
 function showElementToCart() {
-  productInCard = loadProductInCard();
   let cardListeRef = document.getElementById("basketList");
   cardListeRef.innerHTML = "";
-  if (productInCard.length == 0) {
+  if (productInCard.length === 0) {
     cardListeRef.innerHTML = productInCardNull();
   } else {
     for (let i = 0; i < productInCard.length; i++) {
@@ -38,18 +32,42 @@ function showElementToCart() {
   showPrice();
 }
 
+function DisheToCard(table, index, event) {
+  let tempListe;
+  if (table === "myListe") {
+    tempListe = myListe;
+  } else {
+    tempListe = myListe2;
+  }
+  const dishList = tempListe;
+  let product = dishList[index];
+  const newInCard = {
+    name: product.name,
+    price: product.preise,
+    quantity: 1,
+  };
+  let inputProduct = productInCard.find(
+    (product) => product.name === newInCard.name
+  );
+  if (inputProduct) {
+    inputProduct.quantity++;
+  } else {
+    productInCard.push(newInCard);
+  }
+ 
+  showElementToCart();
+  event.stopPropagation();
+}
+
 totalPrice = 0;
-deliveryPrice = 0;
+deliveryPrice = 5;
 prouductPrice = 0;
 
 function showPrice() {
-  productInCard = loadProductInCard();
   let priceRef = document.getElementById("basketPrice");
   if (productInCard.length === 0) {
-    priceRef.classList.add("emptyCart");
     priceRef.innerHTML = "";
   } else {
-    priceRef.classList.remove("emptyCart");
     priceRef.innerHTML = "";
     priceRef.innerHTML += templateTptalPrice(
       totalPrice,
@@ -57,22 +75,4 @@ function showPrice() {
       prouductPrice
     );
   }
-}
-
-function DisheToCard(index) {
-  const eatListe = myListe[index];
-  const sarcheProduct = productInCard.find(
-    (item) => item.name === eatListe.name
-  );
-
-  if (sarcheProduct) {
-    sarcheProduct.quantity += 1;
-  } else {
-    const newProduct = { eatListe, quantity: 1 };
-    productInCard.push(newProduct);
-  }
-
-  productInCard = loadProductInCard();
-  showElementToCart();
-  showPrice();
 }

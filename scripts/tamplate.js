@@ -1,35 +1,36 @@
-function getTemplateListe(eatListe, i) {
+function getTemplateListe(table, i) {
+     let tempDisch;
+     if (table === 'myListe') {
+       tempDisch = myListe[i];
+     } else {tempDisch = myListe2[i];}
+     const dish = tempDisch;
+    
   return `
-  
-    <div class="card" data-index="${i}" onclick="DisheToCard(${i})">
-     <div class="card-body">
+    <div class="card" onclick="DisheToCard('${table}', ${i},event)">
     <div class="cardHeader">
-    <h2 class="nameEat">${eatListe.name}</h2>
-     <button class="addToBasket" onclick="DisheToCard(${i})" >
+    <h2 class="nameEat">${dish.name}</h2>
+     <button class="addToBasket" onclick="DisheToCard('${table}', ${i},event)" >
      <img src="./img/icons8-add-32.png" alt="add" class="addImg">
      </button>
-       
         </div>
-        <p class="descriptionEat">${eatListe.description}</p>
-        <div class="priceEet">${eatListe.preise} &euro;</div>
+        <p class="descriptionEat">${dish.description}</p>
+        <div class="priceEet">${dish.preise} &euro;</div>
     </div>`;
 }
 
 function getTemplateCard(index) {
   return `
-    
+  <hr>
     <div class="warenElement">
-     <h3 class="nameEat">${productInCard[index].name} </h3>
-
-
+      <h5>${productInCard[index] && productInCard[index].name ? productInCard[index].name : 'N/A'}</h5>
      <div class="warenIcon">
-    <button class="deleteFormBasket" data-index="${index}">
+    <button class="deleteFormBasket">
      <img src="./icon/Favicon/icons8-minus-24.png" alt="remove" class="removeImg"></button>
-     <span> ${productInCard[index]?.quantity}</span>
-     <button class="plusFormBasket" data-index="${index}">
+     <span> ${productInCard[index]?.quantity}x</span>
+     <button class="plusFormBasket" >
      <img src="./icon/Favicon/icons8-plus-math-26.png" alt="add" class="addImg"></button>
-     <span class="priceEet">${productInCard[index].preise} &euro;</span>
-     <button class="deleteVonCard" data-index="${index}">
+     <span class="priceEet">${productInCard[index].price} &euro;</span>
+     <button class="deleteVonCard">
      <img src="./icon/Favicon/icons8-delete-24.png" alt="delete" class="deleteImg"></button>
     </div>
     </div>
@@ -49,10 +50,10 @@ function templateTptalPrice(totalPrice, deliveryPrice, prouductPrice) {
 
 function productInCardNull() {
   return `
-        <div class="card text-center mb-3 kein-artikel" >
-        <div class="card-body">
-            <h5 class="card-title">Kein Menü ausgewählt!!</h5>
-            <p class="card-text">wähle leckere Gerichte aus der Karte und bestelle Dein Menü.</p>
+        <div class="card">
+        <div class="cardBody">
+            <h4 class="cardTitle">Kein Menü ausgewählt!!</h4>
+            <p class="cardText">wähle leckere Gerichte aus der Karte und bestelle Dein Menü.</p>
         </div>
         </div>
     
