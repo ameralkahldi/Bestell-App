@@ -177,3 +177,6 @@ header {
 .emptyCart {
   display: none;
 }
+.cardTitle{
+  text-align: center;
+}

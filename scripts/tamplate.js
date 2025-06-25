@@ -1,15 +1,10 @@
 function getTemplateListe(table, i) {
-     let tempDisch;
-     if (table === 'myListe') {
-       tempDisch = myListe[i];
-     } else {tempDisch = myListe2[i];}
-     const dish = tempDisch;
-    
+     const dish = myListe[i];
   return `
-    <div class="card" onclick="DisheToCard('${table}', ${i},event)">
+    <div class="card" onclick="addDisheToCard('${table}', ${i},event)">
     <div class="cardHeader">
     <h2 class="nameEat">${dish.name}</h2>
-     <button class="addToBasket" onclick="DisheToCard('${table}', ${i},event)" >
+     <button class="addToBasket" onclick="addDisheToCard('${table}', ${i},event)" >
      <img src="./img/icons8-add-32.png" alt="add" class="addImg">
      </button>
         </div>
@@ -17,6 +12,7 @@ function getTemplateListe(table, i) {
         <div class="priceEet">${dish.preise} &euro;</div>
     </div>`;
 }
+
 
 function getTemplateCard(index) {
   return `
@@ -36,6 +32,7 @@ function getTemplateCard(index) {
     </div>
     `;
 }
+
 
 function templateTptalPrice(totalPrice, deliveryPrice, prouductPrice) {
   return `
