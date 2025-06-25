@@ -1,4 +1,3 @@
-let productInCard = [];
 
 function inti() {
   renderArray();
@@ -6,7 +5,6 @@ function inti() {
 }
 
 const containerhRef = document.getElementById("showListeDisch");
-
 
 function renderArray() {
   containerhRef.innerHTML = "";
@@ -29,7 +27,7 @@ function showElementToCart() {
   showPrice();
 }
 
-function addDisheToCard(table, index, event) {
+function addDisheToCard(table, index, event) { //add to Card 
   let product = myListe[index];
   const newInCard = {
     name: product.name,
@@ -50,7 +48,7 @@ totalPrice = 0;
 deliveryPrice = 5;
 prouductPrice = 0;
 
-function showPrice() {
+function showPrice() { // show Price
   let priceRef = document.getElementById("basketPrice");
   if (productInCard.length === 0) {
     priceRef.innerHTML = "";
@@ -59,3 +57,18 @@ function showPrice() {
     priceRef.innerHTML += templateTptalPrice(totalPrice,deliveryPrice,prouductPrice);
   }
 }
+
+function deleteFromCard(index) { //delete von Card
+  productInCard.splice(index, 1);
+  showElementToCart();
+}
+
+function increaseQuantity(index) { //add auf Amount 
+  let addAmount = productInCard[index];
+  if (addAmount) {
+    addAmount.quantity++;
+  }
+  showElementToCart();
+
+}
+  

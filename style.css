@@ -139,7 +139,7 @@ header {
 }
 .warenIcon {
   display: flex;
-  gap: 50px;
+  gap: 35px;
   padding: 10px;
 }
 .warenIcon button {

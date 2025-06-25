@@ -40,3 +40,4 @@ const myListe = [
     preise: 9.99,
   },
 ];
+const productInCard = [];
