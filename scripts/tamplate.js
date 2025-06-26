@@ -41,7 +41,10 @@ function templateTptalPrice(totalPrice, deliveryPrice, prouductTotalPrice) {
       <p>Zwischenpreise: ${prouductTotalPrice.toFixed(2)} &euro;</p>
       <p>Lieferpreis: ${deliveryPrice.toFixed(2)} &euro;</p>
       <p>Gesamt: ${totalPrice.toFixed(2)} &euro;</p>
-        <button class="orderButton">Bestellen</button>
+        <div class="justify-content-center align-items-center d-flex ">
+            <button class="btn btn-info text-center m-3 w-75" onclick = "orderAllInCard()">Einkauf Bestätigen</button>
+        </div>
+    
     </div>`;
 }
 
@@ -55,7 +58,7 @@ function productInCardNull() {
 }
 function linkTemplateResponsive(){
     return `
-        <button class="btn btn-primary basket-responsive-btn" onclick = "closePopup()">Warenkorp</button>
+        <button class="btn btn-primary basket-responsive-btn" onclick = "closePopup()">Close</button>
     `;
 }
 

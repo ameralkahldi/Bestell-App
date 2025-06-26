@@ -2,6 +2,7 @@
 function inti() {
   renderArray();
   showElementToCart();
+  showPrice();
 }
 
 const containerhRef = document.getElementById("showListeDisch");
@@ -52,19 +53,20 @@ let = totalPrice = 0;
 function showPrice() { // show Price
   let priceRef = document.getElementById("basketPrice");
   if (productInCard.length === 0) {
-    priceRef.innerHTML = "desactive";
+    priceRef.classList.add('desactive');
+    priceRef.innerHTML = "";
   } else {
-    priceRef.innerHTML = "desactive";
+    priceRef.classList.remove('desactive');
+    priceRef.innerHTML = "";
     calculateTotalPrice();
     priceRef.innerHTML += templateTptalPrice(totalPrice,deliveryPrice,prouductTotalPrice);
   }
 }
 
 function calculateTotalPrice(){ //calculater 
-    for(let index=0 ;index< productInCard.length; index++){
-            prouductTotalPrice = productInCard[index].price* productInCard[index].quantity;
-
-            totalPrice = prouductTotalPrice + deliveryPrice;
+    for(let index=0 ; index< productInCard.length; index++){
+         prouductTotalPrice= productInCard[index].price* productInCard[index].quantity;
+            totalPrice =prouductTotalPrice + deliveryPrice;
         }
 }
 
@@ -109,12 +111,11 @@ function increaseQuantity(index) { //add auf Amount
 
   function orderAllInCard() {
     let cardOrder = document.getElementById('order');
-    toggleCard();
     cardOrder.innerHTML = `<h5>Vielen Dank für Ihre Bestellung!</h5>`;
-    localStorage.removeItem("productInCard");
     setTimeout(() => {
+      toggleCard();
         showElementToCart();
         toggleCard();
         cardOrder.innerHTML = '';
-    }, 2000); 
+    }, 6000); 
 }

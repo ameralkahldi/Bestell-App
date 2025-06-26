@@ -13,7 +13,7 @@ function closePopup(){
 openCardBtn.addEventListener('click', function(){
     cardProduct.classList.toggle('active');
     cardProduct.classList.toggle('desactive');
-    cardProduct.classList.add('popup-basket');
+    cardProduct.classList.add('popupBasket');
     content.classList.toggle('desactive');
     cardTitle.innerHTML = linkTemplateResponsive();
 });
