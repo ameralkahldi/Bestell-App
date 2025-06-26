@@ -74,7 +74,7 @@ function increaseQuantity(index) { //add auf Amount
 
 
   function decincreaseQuantity(index) { //minus von Amount 
-    if (productInCard[index].quantity && productInCard[index].quantity > 1) {
+    if (productInCard[index].quantity > 1) {
         productInCard[index].quantity--;
     } else {
         productInCard.splice(index, 1);

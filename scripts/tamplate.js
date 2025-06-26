@@ -22,10 +22,10 @@ function getTemplateCard(index) {
      <div class="warenIcon">
     <button class="deleteFormBasket" onclick="decincreaseQuantity(${index})">
      <img src="./icon/Favicon/icons8-minus-24.png" alt="remove" class="removeImg" ></button>
-     <span> ${productInCard[index]?.quantity}x</span>
+     <span> ${productInCard[index].quantity}x</span>
      <button class="plusFormBasket" onclick="increaseQuantity(${index})">
      <img src="./icon/Favicon/icons8-plus-math-26.png" alt="add" class="addImg"></button>
-     <span class="priceEet">${productInCard[index].price} &euro;</span> 
+     <span>${((productInCard[index].price)* (productInCard[index].quantity)).toFixed(2)} &euro; </span> 
      <button class="deleteVonCard"> 
      <img src="./icon/Favicon/icons8-delete-24.png" alt="delete" class="deleteImg" onclick="deleteFromCard()"></button> 
     </div>
