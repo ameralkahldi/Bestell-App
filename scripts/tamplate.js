@@ -18,14 +18,14 @@ function getTemplateCard(index) {
   return `
   <hr>
     <div class="warenElement">
-      <h5>${productInCard[index].name }</h5>
+      <h5>${productInCard[index] && productInCard[index].name ? productInCard[index].name : 'N/A'}</h5>
      <div class="warenIcon">
     <button class="deleteFormBasket" onclick="decincreaseQuantity(${index})">
      <img src="./icon/Favicon/icons8-minus-24.png" alt="remove" class="removeImg" ></button>
-     <span> ${productInCard[index].quantity}x</span>
+     <span> ${productInCard[index]?.quantity}x</span>
      <button class="plusFormBasket" onclick="increaseQuantity(${index})">
      <img src="./icon/Favicon/icons8-plus-math-26.png" alt="add" class="addImg"></button>
-     <span>${((productInCard[index].price)* (productInCard[index].quantity)).toFixed(2)} &euro; </span> 
+     <span>${((productInCard[index]?.price)* (productInCard[index]?.quantity)).toFixed(2)}&euro; </span> 
      <button class="deleteVonCard"> 
      <img src="./icon/Favicon/icons8-delete-24.png" alt="delete" class="deleteImg" onclick="deleteFromCard()"></button> 
     </div>
@@ -34,13 +34,13 @@ function getTemplateCard(index) {
 }
 
 
-function templateTptalPrice(totalPrice, deliveryPrice, prouductPrice) {
+function templateTptalPrice(totalPrice, deliveryPrice, prouductTotalPrice) {
   return `
     <div class="totalPrice">
-      <h3>Gesamtpreis:</h3>
-      <p>Produktpreis: ${prouductPrice} &euro;</p>
-      <p>Lieferkosten: ${deliveryPrice} &euro;</p>
-      <p>Gesamt: ${totalPrice} &euro;</p>
+    <hr>
+      <p>Zwischenpreise: ${prouductTotalPrice.toFixed(2)} &euro;</p>
+      <p>Lieferpreis: ${deliveryPrice.toFixed(2)} &euro;</p>
+      <p>Gesamt: ${totalPrice.toFixed(2)} &euro;</p>
         <button class="orderButton">Bestellen</button>
     </div>`;
 }
@@ -53,6 +53,10 @@ function productInCardNull() {
         </div>
         </div>`;
 }
-
+function linkTemplateResponsive(){
+    return `
+        <button class="btn btn-primary basket-responsive-btn" onclick = "closePopup()">Warenkorp</button>
+    `;
+}
 
  

@@ -44,19 +44,30 @@ function addDisheToCard(table, index, event) { //add to Card
   event.stopPropagation();
 }
 
-totalPrice = 0;
-deliveryPrice = 5;
-prouductPrice = 0;
+
+const deliveryPrice = 5;
+let = prouductTotalPrice = 0;
+let = totalPrice = 0;
 
 function showPrice() { // show Price
   let priceRef = document.getElementById("basketPrice");
   if (productInCard.length === 0) {
-    priceRef.innerHTML = "";
+    priceRef.innerHTML = "desactive";
   } else {
-    priceRef.innerHTML = "";
-    priceRef.innerHTML += templateTptalPrice(totalPrice,deliveryPrice,prouductPrice);
+    priceRef.innerHTML = "desactive";
+    calculateTotalPrice();
+    priceRef.innerHTML += templateTptalPrice(totalPrice,deliveryPrice,prouductTotalPrice);
   }
 }
+
+function calculateTotalPrice(){ //calculater 
+    for(let index=0 ;index< productInCard.length; index++){
+            prouductTotalPrice = productInCard[index].price* productInCard[index].quantity;
+
+            totalPrice = prouductTotalPrice + deliveryPrice;
+        }
+}
+
 
 function deleteFromCard(index) { //delete von Card
   productInCard.splice(index, 1);
@@ -74,11 +85,36 @@ function increaseQuantity(index) { //add auf Amount
 
 
   function decincreaseQuantity(index) { //minus von Amount 
-    if (productInCard[index].quantity > 1) {
-        productInCard[index].quantity--;
-    } else {
-        productInCard.splice(index, 1);
-    }
-  
-    showElementToCart();
+   let amoutDes = productInCard[index];
+   if (amoutDes.quantity === 1) {
+    deleteFromCard();
+    console.log(productInCard[index].name)
+    
+   }
+   else{
+    amoutDes.quantity--;
+   }
+   showElementToCart();
+  }
+
+  function toggleCard(){
+    let cardTitle = document.getElementById('baskeTitle');
+    let cardProductList = document.getElementById('basketList');
+    let cardTotalPrice = document.getElementById('basketPrice'); 
+    cardTitle.classList.toggle('desactive');
+    cardProductList.classList.toggle('desactive');
+    cardTotalPrice.classList.toggle('desactive');
+}
+
+
+  function orderAllInCard() {
+    let cardOrder = document.getElementById('order');
+    toggleCard();
+    cardOrder.innerHTML = `<h5>Vielen Dank für Ihre Bestellung!</h5>`;
+    localStorage.removeItem("productInCard");
+    setTimeout(() => {
+        showElementToCart();
+        toggleCard();
+        cardOrder.innerHTML = '';
+    }, 2000); 
 }
