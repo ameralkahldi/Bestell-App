@@ -108,12 +108,13 @@ function decincreaseQuantity(index) {
   //minus von Amount
   let amoutDes = productInCard[index];
   if (amoutDes.quantity === 1) {
-    deleteFromCard();
+    deleteFromCard(index);
     console.log(productInCard[index].name);
   } else {
     amoutDes.quantity--;
   }
   showElementToCart();
+  calculateTotalPrice()
 }
 
 
