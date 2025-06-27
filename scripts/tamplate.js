@@ -27,7 +27,7 @@ function getTemplateCard(index) {
      <img src="./icon/Favicon/icons8-plus-math-26.png" alt="add" class="addImg"></button>
      <span>${((productInCard[index]?.price)* (productInCard[index]?.quantity)).toFixed(2)}&euro; </span> 
      <button class="deleteVonCard"> 
-     <img src="./icon/Favicon/icons8-delete-24.png" alt="delete" class="deleteImg" onclick="deleteFromCard()"></button> 
+     <img src="./icon/Favicon/icons8-delete-24.png" alt="delete" class="deleteImg" onclick="deleteFromCard(${index})"></button> 
     </div>
     </div>
     `;
@@ -58,7 +58,7 @@ function productInCardNull() {
 }
 function linkTemplateResponsive(){
     return `
-        <button class="btn btn-primary basket-responsive-btn" onclick = "closePopup()">Close</button>
+        <button class="btn btn-primary basket-responsive-btn" onclick = "closePopup()">Warenkorp</button>
     `;
 }
 
