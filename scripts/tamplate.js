@@ -18,7 +18,7 @@ function getTemplateCard(index) {
   return `
   <hr>
     <div class="warenElement">
-      <h5>${productInCard[index] && productInCard[index].name ? productInCard[index].name : 'N/A'}</h5>
+      <h5>${productInCard[index].name }</h5>
      <div class="warenIcon">
     <button class="deleteFormBasket" onclick="decincreaseQuantity(${index})">
      <img src="./icon/Favicon/icons8-minus-24.png" alt="remove" class="removeImg" ></button>
@@ -42,7 +42,7 @@ function templateTptalPrice(totalPrice, deliveryPrice, prouductTotalPrice) {
       <p>Lieferpreis: ${deliveryPrice.toFixed(2)} &euro;</p>
       <p>Gesamt: ${totalPrice.toFixed(2)} &euro;</p>
         <div class="justify-content-center align-items-center d-flex ">
-            <button class="btn btn-info text-center m-3 w-75" onclick = "orderAllInCard()">Einkauf Bestätigen</button>
+            <button class="btn btn-info text-center m-3 w-75" onclick = "orderAllInCard()">Bestellen</button>
         </div>
     
     </div>`;
@@ -61,5 +61,25 @@ function linkTemplateResponsive(){
         <button class="btn btn-primary basket-responsive-btn" onclick = "closePopup()">Warenkorp</button>
     `;
 }
+function toggleCard(){
+    let cardTitle = document.getElementById('baskeTitle');
+    let cardProductList = document.getElementById('basketList');
+    let cardTotalPrice = document.getElementById('basketPrice'); 
+    cardTitle.classList.toggle('desactive');
+    cardProductList.classList.toggle('desactive');
+    cardTotalPrice.classList.toggle('desactive');
+}
+function orderAllInCard() {
+  let cardOrder = document.getElementById("order");
+  toggleCard();
+  cardOrder.innerHTML = `<h5>Vielen Dank für Ihre Bestellung!</h5>`;
+  localStorage.removeItem("productInCard");
+  setTimeout(() => {
+        showElementToCart();
+        toggleCard();
+        cardOrder.innerHTML = '';
+    }, 10000); 
+}
+
 
  

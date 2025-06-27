@@ -11,4 +11,5 @@ openCardBtn.addEventListener('click', function(){
     cardProduct.classList.add('popupBasket');
     content.classList.toggle('desactive');
     
+    
 });
