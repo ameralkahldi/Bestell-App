@@ -1,8 +1,15 @@
-function inti() {
+const deliveryPrice = 5;
+let = prouductTotalPrice = 0;
+let = totalPrice = 0;
+
+
+
+function init() {
   renderArray();
   showElementToCart();
   showPrice();
 }
+
 
 
 function renderArray() {
@@ -12,6 +19,7 @@ function renderArray() {
     containerhRef.innerHTML += getTemplateListe(myListe, i);
   }
 }
+
 
 
 function showElementToCart() {
@@ -49,11 +57,6 @@ function addDisheToCard(table, index, event) {
   event.stopPropagation();
 }
 
-
-
-const deliveryPrice = 5;
-let = prouductTotalPrice = 0;
-let = totalPrice = 0;
 
 
 

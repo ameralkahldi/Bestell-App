@@ -228,7 +228,7 @@ header {
 
 @media (max-width:800px) {
     *{
-        font-size: 12px;
+        font-size: 16px;
     }
     .basket-responsive{
     display:block;
