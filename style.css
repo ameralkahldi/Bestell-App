@@ -233,6 +233,9 @@ header {
     .basket-responsive{
     display:block;
 }
+.titleListe{
+  padding: 15px;
+}
 
     .productCard{
         position: fixed;
